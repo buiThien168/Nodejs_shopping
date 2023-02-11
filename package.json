@@ -6,9 +6,7 @@
   "homepage": "https://github.com/buiThien168/Nodejs_shopping.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node src/server.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "nodemon --exec babel-node src/server.js"
   },
   "author": "",
   "license": "ISC",
