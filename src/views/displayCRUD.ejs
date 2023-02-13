@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get crud</title>
+  </head>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+  <body>
+    <table style="width: 100%">
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>firsName</th>
+        <th>LastName</th>
+        <th>Address</th>
+        <th>PhoneNumber</th>
+        <th>Gender</th>
+        <th>Image</th>
+        <th>Roleld</th>
+        <th>Posotionld</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+        <td>Jill</td>
+        <td>Jill</td>
+        <td>Jill</td>
+        <td>Jill</td>
+        <td>Jill</td>
+        <td>Jill</td>
+        <td>Jill</td>
+      </tr>
+      <% for(let i=0; i < dataTable.length; i++) { %>
+        <tr>
+          <td><%= dataTable[i].email %></td>
+          <td><%= dataTable[i].password %></td>
+          <td><%= dataTable[i].firstName %></td>
+          <td><%= dataTable[i].lastName %></td>
+          <td><%= dataTable[i].address %></td>
+          <td><%= dataTable[i].phonenumber %></td>
+          <td><%= dataTable[i].gender %></td>
+          <td><%= dataTable[i].image %></td>
+          <td><%= dataTable[i].roleId %></td>
+          <td><%= dataTable[i].positionId %></td>
+        </tr>
+     <% } %>
+    </table>
+  </body>
+</html>
