@@ -9,6 +9,7 @@ let initWebRoutes = (app)=>{
     route.get('/get-crud',homeController.displayGetCRUD);//hiện thị lên view
     route.get('/edit-crud',homeController.getEditCRUD);
     route.post('/put-crud',homeController.putCRUD);
+    route.get('/delete-crud',homeController.deleteCRUD);
     return app.use("/",route);
 }
 module.exports = initWebRoutes; 
