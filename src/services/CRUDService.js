@@ -49,7 +49,7 @@ let getUserInfoById = (userId) => {
     try {
       let user = await db.User.findOne({
         where: { id: userId },
-        raw: true,
+        // raw: true,
       });
       if (user) {
         resolve(user);
