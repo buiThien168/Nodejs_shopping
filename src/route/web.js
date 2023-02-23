@@ -12,7 +12,11 @@ let initWebRoutes = (app)=>{
     route.post('/put-crud',homeController.putCRUD);
     route.get('/delete-crud',homeController.deleteCRUD);
     route.post('/api/login',userController.handleLogin);
+    // get api
     route.get('/api/get-all-uses',userController.handleGetAllUsers);
+    route.post('/api/create-new-user',userController.handleCreateNewUser);
+    route.put('/api/edit-user',userController.handleEditUser);
+    route.delete('/api/delete-user',userController.handleDeleteUser);
     return app.use("/",route);
 }
 module.exports = initWebRoutes; 
