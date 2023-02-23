@@ -10,7 +10,7 @@ let handleUserLogin = (email, password) => {
         let user = await db.User.findOne({
           attributes: ["email", "roleID", "password"],
           where: { email: email },
-          raw:true
+          raw: true,
         });
         if (user) {
           let check = await bcrypt.compareSync(password, user.password);
@@ -37,6 +37,7 @@ let handleUserLogin = (email, password) => {
     }
   });
 };
+
 let checkUserEmail = (userEmail) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -54,16 +55,32 @@ let checkUserEmail = (userEmail) => {
   });
 };
 
-// let compareUserPassword=()=>{
-//     return Promise((resolve,reject)=>{
-//         try {
-
-//         } catch (error) {
-//             reject(error)
-//         }
-//     })
-// }
-// giair max password
+let getAllUsers = (userId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let users = '';
+      if (userId === 'ALL') {
+        users = await db.User.findAll({
+          attributes:{
+            exclude:['password']
+          }
+        })
+      }
+      if (userId && userId !== 'ALL') {
+        users = await db.User.findOne({
+          where: { id: userId },
+          attributes:{
+            exclude:['password']
+          }
+        })
+      }
+      resolve(users);
+    } catch (error) {
+      reject(error);
+    }
+  })
+};
 module.exports = {
   handleUserLogin: handleUserLogin,
+  getAllUsers: getAllUsers,
 };
