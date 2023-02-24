@@ -117,7 +117,7 @@ let createNewUser =(data)=>{
       });
       resolve({
         errCode:1,
-        message:'OK'
+        errMessage:'OK'
       });
     } catch (error) {
       reject(error)
