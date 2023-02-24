@@ -101,7 +101,7 @@ let createNewUser =(data)=>{
       if(check===true){
         resolve({
           errCode:1,
-          message:'Your email is already in used, plz try another email'
+          errMessage:'Your email is already in used, plz try another email'
         });
       }
       let hashPasswordFromBcrypt = await hashUserPassword(data.password);
@@ -133,7 +133,7 @@ let deleteUser=(userId)=>{
       if(!foundUser){
         resolve({
           errCode:2,
-          message:`The user isn't exit`
+          errMessage:`The user isn't exit`
         })
       }
       await db.User.destroy({
@@ -141,7 +141,7 @@ let deleteUser=(userId)=>{
       })
       resolve({
         errCode:0,
-        message:`The user is deleted`
+        errMessage:`The user is deleted`
       })
     } catch (error) {
       reject(error)
@@ -154,7 +154,7 @@ let editUser=(data)=>{
       if(!data.id){
         resolve({
           errCode:2,
-          message:'Missing required parameters'
+          errMessage:'Missing required parameters'
         });
       }
       let user = await db.User.findOne({
