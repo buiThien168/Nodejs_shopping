@@ -133,7 +133,7 @@ let deleteUser=(userId)=>{
       if(!foundUser){
         resolve({
           errCode:2,
-          errMessage:`The user isn't exit`
+          message:`The user isn't exit`
         })
       }
       await db.User.destroy({
@@ -141,7 +141,7 @@ let deleteUser=(userId)=>{
       })
       resolve({
         errCode:0,
-        errMessage:`The user is deleted`
+        message:`The user is deleted`
       })
     } catch (error) {
       reject(error)
@@ -154,7 +154,7 @@ let editUser=(data)=>{
       if(!data.id){
         resolve({
           errCode:2,
-          errMessage:'Missing required parameters'
+          message:'Missing required parameters'
         });
       }
       let user = await db.User.findOne({
